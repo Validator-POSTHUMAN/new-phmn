@@ -163,6 +163,8 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 Актуальные migration accounting artifacts:
 
 - Snapshot CSV: [snapshots/phmn_final_snapshot.csv](snapshots/phmn_final_snapshot.csv)
+- Expanded source rows: [snapshots/phmn_final_snapshot_expanded_rows.csv](snapshots/phmn_final_snapshot_expanded_rows.csv)
+- DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
 - BeeZee IBC reconciliation: [adjustments/beezee_multihop_reconciliation.csv](adjustments/beezee_multihop_reconciliation.csv)
 - Reports: [reports/](reports/)
@@ -172,13 +174,23 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 
 [`phmn_final_snapshot.csv`](snapshots/phmn_final_snapshot.csv)
 
-Это исправленный ownership-oriented snapshot по всем проверенным сетям. Он исключает double-counting Juno IBC escrow, учитывает проверенные multi-hop IBC balances и сходится к:
+Это user-attribution snapshot по всем проверенным сетям. Он показывает direct/IBC-voucher PHMN, active DAS stake, pending DAS claim и итоговый total PHMN для каждого Cosmos-equivalent адреса.
+
+Он исключает double-counting Juno IBC escrow, учитывает проверенные multi-hop IBC balances, раскрывает DAS staking contract в user-level строки и сходится к:
 
 `121,822 PHMN`
 
 SHA-256:
 
-`32540b083eaef52cc1b9c33d045d8df443f91d0e3e460a61416ad34fdf438075`
+`ddf01379371c848512a96565559debd369a3dfba8ab6a0a5ab3dbdd75f4004b5`
+
+DAS staking expansion заменил старую aggregate строку staking contract на user-level active stake и pending-claim строки. Общий supply не изменился.
+
+Audit files:
+
+- [`phmn_final_snapshot_expanded_rows.csv`](snapshots/phmn_final_snapshot_expanded_rows.csv)
+- [`das_staking_breakdown.csv`](adjustments/das_staking_breakdown.csv)
+- [`PHMN_DAS_STAKING_EXPANSION_2026-06-16.md`](reports/PHMN_DAS_STAKING_EXPANSION_2026-06-16.md)
 
 ### Supply accounting correction report
 
@@ -201,4 +213,3 @@ SHA-256:
 - PHMN, принадлежащий SubDAO treasuries, будет отправлен в новые SubDAO treasuries.
 - Новый токен сохранит прежний лимит supply.
 - Оставшийся PHMN reserve будет контролироваться новым Strategic SubDAO.
-

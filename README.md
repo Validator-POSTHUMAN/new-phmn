@@ -189,6 +189,8 @@ The following files are the current migration accounting artifacts.
 Repository layout:
 
 - Snapshot CSV: [snapshots/phmn_final_snapshot.csv](snapshots/phmn_final_snapshot.csv)
+- Expanded source rows: [snapshots/phmn_final_snapshot_expanded_rows.csv](snapshots/phmn_final_snapshot_expanded_rows.csv)
+- DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
 - BeeZee IBC reconciliation: [adjustments/beezee_multihop_reconciliation.csv](adjustments/beezee_multihop_reconciliation.csv)
 - Reports: [reports/](reports/)
@@ -198,15 +200,29 @@ Repository layout:
 
 [`phmn_final_snapshot.csv`](snapshots/phmn_final_snapshot.csv)
 
-This is the corrected ownership-oriented snapshot across all checked networks. It excludes Juno IBC escrow
-double-counting, resolves verified multi-hop IBC balances, and
+This file is now a user-attribution snapshot. It shows direct or IBC-voucher
+PHMN, DAS active staked PHMN, DAS pending claim PHMN, and the total PHMN
+attributed to each Cosmos-equivalent address.
+
+It excludes Juno IBC escrow double-counting, resolves verified multi-hop IBC
+balances, expands the DAS staking contract into user-level rows, and still
 reconciles to:
 
 `121,822 PHMN`
 
 SHA-256:
 
-`32540b083eaef52cc1b9c33d045d8df443f91d0e3e460a61416ad34fdf438075`
+`ddf01379371c848512a96565559debd369a3dfba8ab6a0a5ab3dbdd75f4004b5`
+
+The DAS staking contract expansion replaced the previous aggregate contract
+row of `53919.085804 PHMN` with user-level active stake and pending-claim
+rows. The total supply did not change.
+
+Audit files:
+
+- [`phmn_final_snapshot_expanded_rows.csv`](snapshots/phmn_final_snapshot_expanded_rows.csv)
+- [`das_staking_breakdown.csv`](adjustments/das_staking_breakdown.csv)
+- [`PHMN_DAS_STAKING_EXPANSION_2026-06-16.md`](reports/PHMN_DAS_STAKING_EXPANSION_2026-06-16.md)
 
 The previous corrected snapshot before the final multi-hop IBC holder expansion was:
 
