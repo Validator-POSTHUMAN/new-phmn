@@ -1,0 +1,294 @@
+{
+  "nodes": [
+    {
+      "id": "minter",
+      "label": "Compromised PHMN minter\njuno100um...xyyw",
+      "group": "compromised",
+      "note": "Compromised minter address"
+    },
+    {
+      "id": "att_juno",
+      "label": "Attacker Juno\njuno1pqard...dea0\n15100 PHMN in snapshot",
+      "group": "attacker",
+      "note": "Attacker same raw key on Juno"
+    },
+    {
+      "id": "att_cosmos",
+      "label": "Attacker Cosmos\ncosmos1pqard...wz6n",
+      "group": "attacker",
+      "note": "Cosmos-equivalent final snapshot address"
+    },
+    {
+      "id": "att_osmo",
+      "label": "Attacker Osmosis\nosmo1pqard...ajvp",
+      "group": "attacker",
+      "note": "Attacker same raw key on Osmosis"
+    },
+    {
+      "id": "att_neutron",
+      "label": "Attacker Neutron\nneutron1pqard...qq5",
+      "group": "attacker",
+      "note": "Attacker same raw key on Neutron"
+    },
+    {
+      "id": "att_noble",
+      "label": "Attacker Noble router\nnoble1pqard...m2za",
+      "group": "attacker",
+      "note": "Attacker same raw key on Noble"
+    },
+    {
+      "id": "sol_token",
+      "label": "Solana USDC token acct\nAhT5Wa...Eer",
+      "group": "attacker_route",
+      "note": "USDC token account receiving CCTP route"
+    },
+    {
+      "id": "sol_owner",
+      "label": "Solana owner wallet\n39CAqA...1HC",
+      "group": "attacker_route",
+      "note": "Owner of Solana USDC token account"
+    },
+    {
+      "id": "sol_caller",
+      "label": "Solana CCTP signer\n6MxMEe...3Rv",
+      "group": "attacker_route",
+      "note": "CCTP destination caller/signer"
+    },
+    {
+      "id": "funding_hub",
+      "label": "Common funding hub\nosmo1m8wg...v83q",
+      "group": "lead",
+      "note": "High-priority common funding hub"
+    },
+    {
+      "id": "secret_root",
+      "label": "Secret funding root\nsecret1h3g...z5k",
+      "group": "context",
+      "note": "POSTHUMAN Secret relayer inventory context"
+    },
+    {
+      "id": "secret_intermediate",
+      "label": "Secret intermediate\nsecret1j2n...7rn",
+      "group": "context",
+      "note": "Secret intermediate before Osmosis/Noble funding route"
+    },
+    {
+      "id": "server",
+      "label": "Minter server\npayments-2 / valoper",
+      "group": "server",
+      "note": "Server investigated in evidence repo"
+    },
+    {
+      "id": "olim_key",
+      "label": "OlimJon SSH key\n109.75.50.14",
+      "group": "person_of_interest",
+      "note": "Server login during incident window"
+    },
+    {
+      "id": "unknown_key",
+      "label": "Unknown SSH key\n153.75.83.51",
+      "group": "unknown",
+      "note": "Strongest timing candidate for direct execution"
+    },
+    {
+      "id": "olim_eltl",
+      "label": "Olim eltl snapshot row\njuno1eltl...m4u3e\n300.009116 PHMN",
+      "group": "manual_review",
+      "note": "Operator-provided Olim address present in snapshot"
+    },
+    {
+      "id": "olim_187",
+      "label": "Olim 187 cluster\ncosmos/osmo/juno/neutron187\n0 PHMN in snapshot",
+      "group": "context",
+      "note": "Operator-provided Olim 187 cluster not present in final snapshot"
+    },
+    {
+      "id": "olim_solana",
+      "label": "Olim provided Solana\nCjHc2h...DNPb",
+      "group": "context",
+      "note": "Operator-provided Solana address, no confirmed graph edge yet"
+    },
+    {
+      "id": "das",
+      "label": "POSTHUMAN DAS staking\nsnapshot attribution",
+      "group": "contract",
+      "note": "DAS staking expansion source"
+    },
+    {
+      "id": "astro_pool",
+      "label": "Astroport PHMN/USDC pool\nneutron1muu...cwjv\n0.000017 PHMN",
+      "group": "contract",
+      "note": "Pool contract used in Neutron sale route"
+    },
+    {
+      "id": "squid_osmo",
+      "label": "Squid / swap-action\nOsmosis contract",
+      "group": "contract",
+      "note": "Osmosis route contract"
+    },
+    {
+      "id": "squid_neutron",
+      "label": "Squid / swap-action\nNeutron contract",
+      "group": "contract",
+      "note": "Neutron route contract"
+    }
+  ],
+  "edges": [
+    {
+      "source": "secret_root",
+      "target": "secret_intermediate",
+      "label": "56.102115 SCRT\n2026-06-08",
+      "kind": "context"
+    },
+    {
+      "source": "secret_intermediate",
+      "target": "funding_hub",
+      "label": "swap/IBC route",
+      "kind": "context"
+    },
+    {
+      "source": "funding_hub",
+      "target": "att_noble",
+      "label": "funded 3.286220 USDC",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_noble",
+      "target": "sol_token",
+      "label": "CCTP 3.115769 USDC",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_noble",
+      "target": "att_osmo",
+      "label": "funded gas via OSMO",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_noble",
+      "target": "att_neutron",
+      "label": "funded gas via NTRN",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_noble",
+      "target": "att_juno",
+      "label": "funded gas via JUNO",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_juno",
+      "target": "minter",
+      "label": "1 JUNO gas",
+      "kind": "confirmed"
+    },
+    {
+      "source": "minter",
+      "target": "att_juno",
+      "label": "30000 PHMN",
+      "kind": "critical"
+    },
+    {
+      "source": "att_juno",
+      "target": "att_osmo",
+      "label": "12000 PHMN",
+      "kind": "critical"
+    },
+    {
+      "source": "att_juno",
+      "target": "att_neutron",
+      "label": "12000 + 3000 PHMN",
+      "kind": "critical"
+    },
+    {
+      "source": "att_neutron",
+      "target": "astro_pool",
+      "label": "sold 2900 PHMN",
+      "kind": "critical"
+    },
+    {
+      "source": "att_neutron",
+      "target": "squid_neutron",
+      "label": "swap route",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_neutron",
+      "target": "att_juno",
+      "label": "returned 12100 PHMN",
+      "kind": "critical"
+    },
+    {
+      "source": "att_osmo",
+      "target": "squid_osmo",
+      "label": "sale route",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_osmo",
+      "target": "sol_token",
+      "label": "8953.646449 USDC\nvia Noble/CCTP",
+      "kind": "critical"
+    },
+    {
+      "source": "sol_owner",
+      "target": "sol_token",
+      "label": "owns",
+      "kind": "confirmed"
+    },
+    {
+      "source": "sol_caller",
+      "target": "sol_token",
+      "label": "receive signer",
+      "kind": "confirmed"
+    },
+    {
+      "source": "att_juno",
+      "target": "att_cosmos",
+      "label": "same raw key / snapshot",
+      "kind": "confirmed"
+    },
+    {
+      "source": "funding_hub",
+      "target": "olim_187",
+      "label": "funded investigated juno187",
+      "kind": "lead"
+    },
+    {
+      "source": "olim_eltl",
+      "target": "das",
+      "label": "DAS active stake\n300.009116 PHMN",
+      "kind": "manual_review"
+    },
+    {
+      "source": "olim_key",
+      "target": "server",
+      "label": "logged in during incident",
+      "kind": "lead"
+    },
+    {
+      "source": "unknown_key",
+      "target": "server",
+      "label": "active during mint/transfer",
+      "kind": "critical"
+    },
+    {
+      "source": "server",
+      "target": "minter",
+      "label": "mint artifacts / scripts",
+      "kind": "critical"
+    },
+    {
+      "source": "olim_187",
+      "target": "att_juno",
+      "label": "no direct final snapshot PHMN",
+      "kind": "no_confirmed_link"
+    },
+    {
+      "source": "olim_solana",
+      "target": "sol_token",
+      "label": "no confirmed link yet",
+      "kind": "no_confirmed_link"
+    }
+  ]
+}

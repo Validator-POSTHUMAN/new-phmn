@@ -175,6 +175,8 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 - Snapshot address map: [snapshots/phmn_final_snapshot_address_map.csv](snapshots/phmn_final_snapshot_address_map.csv)
 - Attacker/Olim interaction review: [reports/PHMN_ATTACKER_OLIM_INTERACTION_REVIEW_2026-06-16.md](reports/PHMN_ATTACKER_OLIM_INTERACTION_REVIEW_2026-06-16.md)
 - Attacker/Olim interaction CSV: [adjustments/attacker_olim_interaction_review_2026-06-16.csv](adjustments/attacker_olim_interaction_review_2026-06-16.csv)
+- Attacker/Olim interaction graph: [reports/PHMN_ATTACKER_OLIM_INTERACTION_GRAPH_2026-06-16.md](reports/PHMN_ATTACKER_OLIM_INTERACTION_GRAPH_2026-06-16.md)
+- Graph SVG: [graphs/phmn_attacker_olim_interaction_graph.svg](graphs/phmn_attacker_olim_interaction_graph.svg)
 - Public explainer RU: [reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
 - Public explainer EN: [reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
 - Reports: [reports/](reports/)

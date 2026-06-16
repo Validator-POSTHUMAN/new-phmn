@@ -1,0 +1,81 @@
+digraph PHMN {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+  minter [label="Compromised PHMN minter
+juno100um...xyyw"];
+  att_juno [label="Attacker Juno
+juno1pqard...dea0
+15100 PHMN in snapshot"];
+  att_cosmos [label="Attacker Cosmos
+cosmos1pqard...wz6n"];
+  att_osmo [label="Attacker Osmosis
+osmo1pqard...ajvp"];
+  att_neutron [label="Attacker Neutron
+neutron1pqard...qq5"];
+  att_noble [label="Attacker Noble router
+noble1pqard...m2za"];
+  sol_token [label="Solana USDC token acct
+AhT5Wa...Eer"];
+  sol_owner [label="Solana owner wallet
+39CAqA...1HC"];
+  sol_caller [label="Solana CCTP signer
+6MxMEe...3Rv"];
+  funding_hub [label="Common funding hub
+osmo1m8wg...v83q"];
+  secret_root [label="Secret funding root
+secret1h3g...z5k"];
+  secret_intermediate [label="Secret intermediate
+secret1j2n...7rn"];
+  server [label="Minter server
+payments-2 / valoper"];
+  olim_key [label="OlimJon SSH key
+109.75.50.14"];
+  unknown_key [label="Unknown SSH key
+153.75.83.51"];
+  olim_eltl [label="Olim eltl snapshot row
+juno1eltl...m4u3e
+300.009116 PHMN"];
+  olim_187 [label="Olim 187 cluster
+cosmos/osmo/juno/neutron187
+0 PHMN in snapshot"];
+  olim_solana [label="Olim provided Solana
+CjHc2h...DNPb"];
+  das [label="POSTHUMAN DAS staking
+snapshot attribution"];
+  astro_pool [label="Astroport PHMN/USDC pool
+neutron1muu...cwjv
+0.000017 PHMN"];
+  squid_osmo [label="Squid / swap-action
+Osmosis contract"];
+  squid_neutron [label="Squid / swap-action
+Neutron contract"];
+  secret_root -> secret_intermediate [label="56.102115 SCRT
+2026-06-08", style=dashed];
+  secret_intermediate -> funding_hub [label="swap/IBC route", style=dashed];
+  funding_hub -> att_noble [label="funded 3.286220 USDC", style=solid];
+  att_noble -> sol_token [label="CCTP 3.115769 USDC", style=solid];
+  att_noble -> att_osmo [label="funded gas via OSMO", style=solid];
+  att_noble -> att_neutron [label="funded gas via NTRN", style=solid];
+  att_noble -> att_juno [label="funded gas via JUNO", style=solid];
+  att_juno -> minter [label="1 JUNO gas", style=solid];
+  minter -> att_juno [label="30000 PHMN", style=solid];
+  att_juno -> att_osmo [label="12000 PHMN", style=solid];
+  att_juno -> att_neutron [label="12000 + 3000 PHMN", style=solid];
+  att_neutron -> astro_pool [label="sold 2900 PHMN", style=solid];
+  att_neutron -> squid_neutron [label="swap route", style=solid];
+  att_neutron -> att_juno [label="returned 12100 PHMN", style=solid];
+  att_osmo -> squid_osmo [label="sale route", style=solid];
+  att_osmo -> sol_token [label="8953.646449 USDC
+via Noble/CCTP", style=solid];
+  sol_owner -> sol_token [label="owns", style=solid];
+  sol_caller -> sol_token [label="receive signer", style=solid];
+  att_juno -> att_cosmos [label="same raw key / snapshot", style=solid];
+  funding_hub -> olim_187 [label="funded investigated juno187", style=dashed];
+  olim_eltl -> das [label="DAS active stake
+300.009116 PHMN", style=dashed];
+  olim_key -> server [label="logged in during incident", style=dashed];
+  unknown_key -> server [label="active during mint/transfer", style=solid];
+  server -> minter [label="mint artifacts / scripts", style=solid];
+  olim_187 -> att_juno [label="no direct final snapshot PHMN", style=dashed];
+  olim_solana -> sol_token [label="no confirmed link yet", style=dashed];
+}
