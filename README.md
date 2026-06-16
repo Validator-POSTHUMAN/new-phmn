@@ -1,5 +1,7 @@
 # PHMN Migration: Final Snapshot and Distribution Rules
 
+[Русская версия](README_ru.md)
+
 ## Short Summary
 
 POSTHUMAN is preparing a migration from the old PHMN token to a new PHMN token
