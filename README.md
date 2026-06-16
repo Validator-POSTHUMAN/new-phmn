@@ -2,6 +2,11 @@
 
 [Русская версия](README_ru.md)
 
+Plain-language public explainer:
+
+- [What is happening with PHMN and what the team is doing next](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
+- [Русская версия объяснения](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
+
 ## Short Summary
 
 POSTHUMAN is preparing a migration from the old PHMN token to a new PHMN token
@@ -193,6 +198,8 @@ Repository layout:
 - DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
 - BeeZee IBC reconciliation: [adjustments/beezee_multihop_reconciliation.csv](adjustments/beezee_multihop_reconciliation.csv)
+- Public explainer EN: [reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
+- Public explainer RU: [reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
 - Reports: [reports/](reports/)
 - Checksums: [checksums/](checksums/)
 

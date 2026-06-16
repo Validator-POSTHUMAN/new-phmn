@@ -2,6 +2,11 @@
 
 [English version](README.md)
 
+Публичное объяснение простым языком:
+
+- [Что происходит с PHMN и что команда делает дальше](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
+- [English version](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
+
 ## Кратко
 
 POSTHUMAN готовит миграцию старого PHMN в новый PHMN на Cosmos Hub через TokenFactory.
@@ -167,6 +172,8 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 - DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
 - BeeZee IBC reconciliation: [adjustments/beezee_multihop_reconciliation.csv](adjustments/beezee_multihop_reconciliation.csv)
+- Public explainer RU: [reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
+- Public explainer EN: [reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
 - Reports: [reports/](reports/)
 - Checksums: [checksums/SHA256SUMS](checksums/SHA256SUMS)
 
