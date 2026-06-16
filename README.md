@@ -35,12 +35,7 @@ The new setup is designed so that:
 
 ## Final Snapshot Rule
 
-The final migration snapshot is based on old PHMN balances across:
-
-- Juno
-- Osmosis
-- Neutron
-- BeeZee
+The final migration snapshot is based on old PHMN balances across all checked networks and IBC locations where old PHMN exists
 
 The snapshot is corrected for IBC accounting.
 
@@ -56,7 +51,7 @@ The corrected accounting model is:
 
 1. Count normal Juno holders.
 2. Exclude Juno IBC escrow contract balances.
-3. Count actual Osmosis, Neutron, and BeeZee PHMN voucher holders instead.
+3. Count actual destination-chain PHMN voucher holders instead.
 4. For multi-hop IBC, count the final holder chain when verified.
 5. Keep unresolved accounting gaps in quarantine until they are understood.
 
@@ -64,7 +59,7 @@ The corrected old PHMN supply is:
 
 `121,822 PHMN`
 
-A later BeeZee check found `0.904878 PHMN` that moved from Osmosis to BeeZee. This does not change the corrected total. It only changes the final owner mapping for that small amount: the Osmosis channel escrow row is replaced by the three BeeZee holder rows.
+A final multi-hop IBC check resolved `0.904878 PHMN` that was still mapped to an intermediate channel escrow address. This does not change the corrected total. It only changes the final owner mapping for that small amount: the escrow row is replaced by the verified end-holder rows.
 
 The old contract cap is:
 
@@ -191,8 +186,7 @@ The following files are the current migration accounting artifacts.
 
 Repository layout:
 
-- Snapshot CSV: [snapshots/canonical_ownership_current_with_beezee.csv](snapshots/canonical_ownership_current_with_beezee.csv)
-- BeeZee holder expansion: [snapshots/beezee_phmn_owners.csv](snapshots/beezee_phmn_owners.csv)
+- Snapshot CSV: [snapshots/phmn_final_snapshot.csv](snapshots/phmn_final_snapshot.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
 - BeeZee IBC reconciliation: [adjustments/beezee_multihop_reconciliation.csv](adjustments/beezee_multihop_reconciliation.csv)
 - Reports: [reports/](reports/)
@@ -200,10 +194,10 @@ Repository layout:
 
 ### Corrected ownership snapshot
 
-[`canonical_ownership_current_with_beezee.csv`](snapshots/canonical_ownership_current_with_beezee.csv)
+[`phmn_final_snapshot.csv`](snapshots/phmn_final_snapshot.csv)
 
-This is the corrected ownership-oriented snapshot. It excludes Juno IBC escrow
-double-counting, resolves the verified BeeZee multi-hop IBC balance, and
+This is the corrected ownership-oriented snapshot across all checked networks. It excludes Juno IBC escrow
+double-counting, resolves verified multi-hop IBC balances, and
 reconciles to:
 
 `121,822 PHMN`
@@ -212,12 +206,12 @@ SHA-256:
 
 `32540b083eaef52cc1b9c33d045d8df443f91d0e3e460a61416ad34fdf438075`
 
-The previous corrected snapshot without the BeeZee holder expansion was:
+The previous corrected snapshot before the final multi-hop IBC holder expansion was:
 
 `canonical_ownership_current.csv`
 
-Its total was already correct, but `0.904878 PHMN` was still mapped to the
-Osmosis channel escrow address instead of the BeeZee end holders.
+Its total was already correct, but `0.904878 PHMN` was still mapped to an
+Osmosis channel escrow address instead of the final end holders.
 
 ### Supply accounting correction report
 
@@ -248,7 +242,7 @@ SHA-256:
 In simple terms:
 
 - we took a final snapshot of old PHMN balances;
-- we corrected it so PHMN bridged to Osmosis, Neutron, and BeeZee is not counted twice;
+- we corrected it so PHMN bridged through IBC is not counted twice;
 - transfers after publication will not affect the migration;
 - attacker and incident-related addresses will not receive new PHMN as normal
   holders;
