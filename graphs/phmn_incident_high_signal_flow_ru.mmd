@@ -1,0 +1,36 @@
+flowchart LR
+  server["Minter server evidence<br/>unknown SSH active during incident"]
+  minter["Compromised minter<br/>juno100um...xyyw"]
+  attacker["Attacker Juno pqard<br/>juno1pqard...dea0<br/>15100 PHMN in snapshot"]
+  osmo["Osmosis route<br/>osmo1pqard...ajvp"]
+  neutron["Neutron route<br/>neutron1pqard...qq5"]
+  contracts["DEX / pool / router contracts<br/>common infrastructure"]
+  solana["Solana route<br/>AhT5... / 39CA... / 6Mx..."]
+  funding["Funding hub<br/>osmo1m8wg...v83q"]
+  olim["Olim eltl manual review<br/>300.009116 PHMN via DAS"]
+  olim187["Olim 187 cluster<br/>0 PHMN in snapshot"]
+  benign["Benign-control<br/>juno1e8238...dl93mj"]
+
+  server -. "server artifacts" .-> minter
+  minter -->|"30000 PHMN"| attacker
+  attacker -->|"12000 PHMN"| osmo
+  attacker -->|"12000 + 3000 PHMN"| neutron
+  neutron -->|"sell / swap"| contracts
+  osmo -->|"Noble / CCTP USDC"| solana
+  contracts -->|"USDC route"| solana
+  funding -. "pre-incident funding lead" .-> attacker
+  funding -. "context lead" .-> olim187
+  olim -. "manual review only" .-> funding
+  benign -. "false-positive control" .-> olim
+
+  classDef confirmed fill:#fee2e2,stroke:#b42318,stroke-width:2px,color:#111;
+  classDef context fill:#fef3c7,stroke:#a16207,stroke-width:2px,color:#111;
+  classDef manual fill:#dcfce7,stroke:#166534,stroke-width:2px,color:#111;
+  classDef contract fill:#e5e7eb,stroke:#374151,stroke-width:2px,color:#111;
+  classDef benign fill:#ecfeff,stroke:#0891b2,stroke-width:2px,color:#111;
+  class minter,attacker,osmo,neutron,solana confirmed;
+  class funding,olim187 context;
+  class olim manual;
+  class contracts contract;
+  class benign benign;
+
