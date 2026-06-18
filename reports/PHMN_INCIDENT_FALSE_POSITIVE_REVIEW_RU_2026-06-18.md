@@ -1,84 +1,83 @@
-# PHMN Incident False-Positive Review
+# PHMN: проверка ложных связей
 
-Updated: 2026-06-18
+Обновлено: 2026-06-18
 
-This note explains how to read the PHMN attacker / Olim interaction evidence without overstating weak or common-contract links.
+Этот документ объясняет, как читать доказательства по взаимодействиям адресов атакера, Олима и других адресов, не преувеличивая слабые связи и связи через общие контракты.
 
-## Core Rule
+## Главное правило
 
-A graph edge is not proof by itself.
+Сам факт ребра в графе не является доказательством.
 
-The review must distinguish:
+При проверке нужно разделять:
 
-- direct wallet-to-wallet transfers;
-- same raw-key address clusters;
-- server-access evidence;
-- DEX / pool / router / IBC infrastructure used by many users;
-- SubDAO treasury transfers;
-- normal community or operator payments;
-- unresolved weak leads.
+- прямые переводы между пользовательскими кошельками;
+- кластеры адресов с одним raw key;
+- доказательства по доступу к серверу;
+- DEX / pool / router / IBC инфраструктуру, которой пользуются многие;
+- переводы из treasury SubDAO;
+- обычные community или operator payments;
+- слабые следы, которые пока не доказаны.
 
-Only direct incident flow and strongly correlated server/on-chain evidence should be treated as high-confidence attacker evidence.
+Только прямой поток инцидента и сильно коррелирующие серверные/on-chain доказательства должны считаться доказательствами атакера с высокой уверенностью.
 
-## Strong Evidence
+## Сильные доказательства
 
-High-confidence attacker evidence currently includes:
+Сейчас к доказательствам атакера с высокой уверенностью относятся:
 
-- compromised minter `juno100umj2mnu0u6ujf37c9a3xfy9gl53hu9ekxyyw` minted unauthorized PHMN;
-- compromised minter sent `30000 PHMN` to attacker Juno address `juno1pqardc39d558mr58nx5m2wgmy448pv94ehdea0`;
-- attacker same raw-key cluster moved PHMN through Juno, Osmosis, and Neutron;
-- attacker swapped/sold part of PHMN and routed USDC through Noble / CCTP to Solana;
-- server evidence shows unknown SSH access active during the mint/transfer window.
+- скомпрометированный minter `juno100umj2mnu0u6ujf37c9a3xfy9gl53hu9ekxyyw` выпустил неавторизованный PHMN;
+- скомпрометированный minter отправил `30000 PHMN` на Juno-адрес атакера `juno1pqardc39d558mr58nx5m2wgmy448pv94ehdea0`;
+- кластер атакера с одним raw key двигал PHMN через Juno, Osmosis и Neutron;
+- атакер обменял/продал часть PHMN и вывел USDC через Noble / CCTP в Solana;
+- серверные доказательства показывают неизвестный SSH-доступ во время окна mint/transfer.
 
-## Weak Or Contextual Evidence
+## Слабые или контекстные связи
 
-These links are useful for investigation, but must not be treated as proof by themselves:
+Эти связи полезны для расследования, но сами по себе не являются доказательством:
 
-- a shared DEX or swap contract;
-- an Osmosis pool module address;
-- an Astroport pool contract;
+- общий DEX или swap contract;
+- Osmosis pool module address;
+- Astroport pool contract;
 - Squid/swap-action router contracts;
-- IBC escrow or channel contracts;
+- IBC escrow или channel contracts;
 - SubDAO treasury payments;
-- a normal PHMN transfer between community members;
-- a common funding-hub relation without direct incident-flow confirmation;
-- a Solana route/infrastructure overlap through CCTP.
+- обычный PHMN transfer между участниками сообщества;
+- связь через общий funding hub без прямого подтверждения потока инцидента;
+- пересечение маршрута через Solana CCTP инфраструктуру.
 
-## Known Benign-Control Address
+## Известный benign-control адрес
 
-Operator-provided high-activity PHMN sender:
+Адрес активного отправителя PHMN, предоставленный оператором:
 
 - `juno1e8238v24qccht9mqc2w0r4luq462yxttdl93mj`
 
-This address has sent PHMN to many users, including Olim-related addresses. That interaction must not be interpreted as attacker evidence by itself.
+Этот адрес отправлял PHMN многим пользователям, включая адреса, связанные с Olim. Такое взаимодействие не должно интерпретироваться как доказательство связи с атакером само по себе.
 
-Use this address as a control when testing graph rules: if a rule would mark this address as attacker-related only because it interacted with Olim or a common PHMN contract, the rule is too broad.
+Используйте этот адрес как контрольный пример: если правило помечает его как связанный с атакером только потому, что он взаимодействовал с Olim или общим PHMN contract, правило слишком широкое.
 
-## Recommended Edge Classes
+## Рекомендуемые классы рёбер
 
-- `confirmed_incident_flow`: unauthorized mint, attacker transfer, sale, bridge, same raw-key attacker movement. Distribution impact: exclude or route to incident bucket.
-- `server_access_evidence`: SSH/session/log evidence around the incident window. Distribution impact: manual incident evidence, not a token-flow edge.
-- `manual_review`: person-of-interest or operator-provided address needing human review. Distribution impact: do not auto-exclude.
-- `common_contract`: DEX, pool, router, escrow, IBC, module contract. Distribution impact: never proof alone.
-- `benign_context`: known community/operator activity. Distribution impact: explicit non-attacker context.
-- `weak_lead`: funding-hub or route relation that may deserve deeper indexer review. Distribution impact: investigate only.
+- `confirmed_incident_flow`: неавторизованный mint, перевод атакера, продажа, bridge, движение атакера с тем же raw key. Влияние на distribution: исключить или отправить в incident bucket.
+- `server_access_evidence`: SSH/session/log доказательства вокруг окна инцидента. Влияние на distribution: ручное доказательство инцидента, не token-flow edge.
+- `manual_review`: person-of-interest или адрес, предоставленный оператором, требующий ручной проверки. Влияние на distribution: не исключать автоматически.
+- `common_contract`: DEX, pool, router, escrow, IBC, module contract. Влияние на distribution: никогда не является доказательством само по себе.
+- `benign_context`: известная активность сообщества или оператора. Влияние на distribution: явный контекст, не связанный с атакером.
+- `weak_lead`: funding-hub или route relation, требующий более глубокой проверки через indexer. Влияние на distribution: только расследовать.
 
-## Practical Review Checklist
+## Практический чеклист проверки
 
-- [ ] Is the edge a direct transfer between two user-controlled wallets?
-- [ ] Is the edge only a contract/router/pool interaction?
-- [ ] Is either endpoint a module, escrow, pool, or public contract?
-- [ ] Is the edge part of the confirmed unauthorized mint / sale / bridge flow?
-- [ ] Does the address appear in the final PHMN snapshot?
-- [ ] Does exclusion depend on this edge alone?
-- [ ] Could the same rule falsely flag the benign-control address?
-- [ ] Is a real account-history indexer needed before making a decision?
+- [ ] Это прямой transfer между двумя user-controlled wallets?
+- [ ] Или это только взаимодействие с contract/router/pool?
+- [ ] Является ли один из endpoint module, escrow, pool или public contract?
+- [ ] Является ли edge частью подтверждённого unauthorized mint / sale / bridge flow?
+- [ ] Присутствует ли адрес в final PHMN snapshot?
+- [ ] Зависит ли exclusion только от этого edge?
+- [ ] Может ли это же правило ложно пометить benign-control address?
+- [ ] Нужен ли реальный account-history indexer перед решением?
 
-## Current Assessment
+## Текущая оценка
 
-The `pqard...` attacker same-key cluster is strong enough to exclude from normal distribution.
+`pqard...` кластер атакера с тем же raw key достаточно подтверждён для исключения из normal distribution.
 
-The Olim `eltl` snapshot row remains manual-review evidence, not automatic exclusion, because known links include DAS stake context and person-of-interest server/access context rather than a direct confirmed attacker wallet flow.
+Olim `eltl` snapshot row остаётся доказательством для ручной проверки, а не automatic exclusion, потому что известные links включают DAS stake context и person-of-interest server/access context, но не прямой confirmed attacker wallet flow.
 
-The `187` cluster and funding-hub relations remain contextual leads. They need deeper account-history indexing before they can be used for any distribution decision.
-
+`187` cluster и funding-hub relations остаются контекстными следами. Для использования в distribution decision им нужен более глубокий account-history indexing.

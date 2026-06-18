@@ -1,40 +1,44 @@
-# PHMN Incident Visualization Guide
+# PHMN: руководство по визуализациям инцидента
 
-Updated: 2026-06-18
+Обновлено: 2026-06-18
 
-This guide explains how to view and maintain the PHMN incident interaction visualizations.
+Этот документ объясняет, как смотреть и поддерживать визуализации взаимодействий адресов по PHMN incident.
 
-## Fastest Public View
+## Самый быстрый публичный просмотр
 
-Open the rendered files in GitHub:
+Откройте готовые файлы в GitHub:
 
-- High-signal Russian infographic: `graphs/phmn_incident_high_signal_flow_ru.svg`
-- Existing detailed graph: `graphs/phmn_attacker_olim_interaction_graph.svg`
-- Existing PNG render: `graphs/phmn_attacker_olim_interaction_graph.png`
+- Русская high-signal инфографика: `graphs/phmn_incident_high_signal_flow_ru.svg`
+- Детальный граф: `graphs/phmn_attacker_olim_interaction_graph.svg`
+- PNG-версия детального графа: `graphs/phmn_attacker_olim_interaction_graph.png`
 
-## Editable Sources
+## Редактируемые источники
 
-The detailed graph has these editable sources:
+У детального графа есть такие редактируемые источники:
 
 - Mermaid: `graphs/phmn_attacker_olim_interaction_graph.mmd`
 - Graphviz DOT: `graphs/phmn_attacker_olim_interaction_graph.dot`
 - JSON: `graphs/phmn_attacker_olim_interaction_graph.json`
 
-The new high-signal infographic is hand-authored SVG so it can be opened directly in a browser or GitHub without a rendering step.
+У high-signal инфографики есть две версии:
 
-## Obsidian View
+- английская SVG: `graphs/phmn_incident_high_signal_flow.svg`
+- русская SVG: `graphs/phmn_incident_high_signal_flow_ru.svg`
 
-Open the `entities/phmn-incident/` folder as an Obsidian-style evidence map. Start from:
+SVG можно открыть напрямую в браузере или GitHub без дополнительного шага рендера.
+
+## Obsidian view
+
+Откройте папку `entities/phmn-incident/` как Obsidian-style карту доказательств. Начинать лучше отсюда:
 
 - `entities/phmn-incident/README.md`
 
-Each entity page uses wikilinks to connect attacker addresses, Olim addresses, server-access evidence, common contracts, and false-positive controls.
+Каждая страница сущности использует wikilinks для связей между адресами атакера, адресами Olim, доказательствами доступа к серверу, общими контрактами и false-positive controls.
 
-## How To Update Safely
+## Как обновлять безопасно
 
-1. Add new evidence to an entity page first.
-2. Classify each edge as confirmed incident flow, manual review, common contract, benign context, or weak lead.
-3. Update `PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md` if a new false-positive pattern appears.
-4. Update the CSV only when the relation affects snapshot/distribution review.
-5. Recalculate `checksums/SHA256SUMS` after changing public files.
-
+1. Сначала добавьте новое доказательство на страницу сущности.
+2. Классифицируйте каждый edge: confirmed incident flow, manual review, common contract, benign context или weak lead.
+3. Обновите `PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md`, если появился новый false-positive pattern.
+4. Обновляйте CSV только если связь влияет на snapshot/distribution review.
+5. Пересчитайте `checksums/SHA256SUMS` после изменения публичных файлов.

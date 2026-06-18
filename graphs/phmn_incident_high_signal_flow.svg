@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-labelledby="title desc">
-  <title id="title">PHMN incident: high-signal flow RU</title>
-  <desc id="desc">Ключевой flow PHMN incident и контекст manual review.</desc>
+  <title id="title">PHMN incident high-signal flow</title>
+  <desc id="desc">High-signal PHMN incident flow and manual review context.</desc>
   <defs>
-    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#b42318"/></marker>
-    <marker id="arrow-amber" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#a16207"/></marker>
-    <marker id="arrow-gray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#b42318"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#a16207"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
     <style>
       .bg { fill: #f8fafc; }
       .title { font: 700 34px Arial, sans-serif; fill: #0f172a; }
@@ -27,87 +33,109 @@
       .label { font: 700 13px Arial, sans-serif; fill: #334155; }
     </style>
   </defs>
+
   <rect class="bg" x="0" y="0" width="1600" height="940"/>
-  <text class="title" x="60" y="64">PHMN incident: ключевой flow и контекст manual review</text>
-  <text class="subtitle" x="60" y="96">Красный = confirmed incident flow. Жёлтый/серый = контекст или common infrastructure, не доказательство само по себе.</text>
+  <text class="title" x="60" y="64">PHMN incident: high-signal flow and manual-review context</text>
+  <text class="subtitle" x="60" y="96">Red = confirmed incident flow. Amber/gray = contextual or common-infrastructure links, not proof by itself.</text>
 
   <rect class="server" x="60" y="150" width="280" height="116"/>
   <text class="box-title" x="82" y="182">Minter server evidence</text>
   <text class="box-text" x="82" y="209">unknown SSH key 153.75.83.51</text>
-  <text class="box-text" x="82" y="232">активен во время mint / transfer</text>
-  <text class="small" x="82" y="254">OlimJon key = контекст, не token-flow proof</text>
+  <text class="box-text" x="82" y="232">active during mint / transfer</text>
+  <text class="small" x="82" y="254">OlimJon key is contextual, not token-flow proof</text>
 
   <rect class="confirmed" x="420" y="150" width="260" height="116"/>
-  <text class="box-title" x="442" y="182">Скомпрометированный minter</text>
+  <text class="box-title" x="442" y="182">Compromised minter</text>
   <text class="box-text" x="442" y="209">juno100um...xyyw</text>
   <text class="box-text" x="442" y="232">unauthorized mint</text>
-  <text class="small" x="442" y="254">старый Juno CW20 PHMN minter</text>
+  <text class="small" x="442" y="254">old Juno CW20 PHMN minter</text>
 
   <rect class="confirmed" x="760" y="150" width="300" height="116"/>
   <text class="box-title" x="782" y="182">Attacker Juno pqard</text>
   <text class="box-text" x="782" y="209">juno1pqard...dea0</text>
-  <text class="box-text" x="782" y="232">получил 30000 PHMN</text>
-  <text class="small" x="782" y="254">15100 PHMN осталось в снапшоте</text>
+  <text class="box-text" x="782" y="232">received 30000 PHMN</text>
+  <text class="small" x="782" y="254">15100 PHMN remains in snapshot</text>
 
   <rect class="confirmed" x="1140" y="90" width="300" height="104"/>
   <text class="box-title" x="1162" y="122">Osmosis attacker route</text>
   <text class="box-text" x="1162" y="149">osmo1pqard...ajvp</text>
-  <text class="small" x="1162" y="172">получил 12000 PHMN</text>
+  <text class="small" x="1162" y="172">received 12000 PHMN</text>
 
   <rect class="confirmed" x="1140" y="230" width="300" height="104"/>
   <text class="box-title" x="1162" y="262">Neutron attacker route</text>
   <text class="box-text" x="1162" y="289">neutron1pqard...qq5</text>
-  <text class="small" x="1162" y="312">получил 12000 + 3000 PHMN</text>
+  <text class="small" x="1162" y="312">received 12000 + 3000 PHMN</text>
 
   <rect class="contract" x="1140" y="390" width="300" height="104"/>
   <text class="box-title" x="1162" y="422">DEX / pool contracts</text>
   <text class="box-text" x="1162" y="449">Astroport, Squid, pools</text>
-  <text class="small" x="1162" y="472">общая инфраструктура, не proof alone</text>
+  <text class="small" x="1162" y="472">common infrastructure, not proof alone</text>
 
   <rect class="route" x="760" y="560" width="300" height="116"/>
   <text class="box-title" x="782" y="592">Solana route</text>
   <text class="box-text" x="782" y="619">AhT5... USDC token account</text>
   <text class="box-text" x="782" y="642">owner 39CA...</text>
-  <text class="small" x="782" y="664">USDC через Noble / CCTP</text>
+  <text class="small" x="782" y="664">USDC via Noble / CCTP</text>
 
   <rect class="context" x="420" y="560" width="260" height="116"/>
   <text class="box-title" x="442" y="592">Funding hub</text>
   <text class="box-text" x="442" y="619">osmo1m8wg...v83q</text>
   <text class="box-text" x="442" y="642">pre-incident funding lead</text>
-  <text class="small" x="442" y="664">нужен deeper indexer review</text>
+  <text class="small" x="442" y="664">needs deeper indexer review</text>
 
   <rect class="manual" x="60" y="520" width="280" height="132"/>
   <text class="box-title" x="82" y="552">Olim manual-review rows</text>
   <text class="box-text" x="82" y="579">juno1eltl...m4u3e</text>
-  <text class="box-text" x="82" y="602">300.009116 PHMN через DAS</text>
-  <text class="small" x="82" y="624">manual review, не auto-exclusion</text>
+  <text class="box-text" x="82" y="602">300.009116 PHMN via DAS</text>
+  <text class="small" x="82" y="624">manual review, not auto-exclusion</text>
 
   <rect class="context" x="60" y="700" width="280" height="112"/>
   <text class="box-title" x="82" y="732">Olim 187 cluster</text>
-  <text class="box-text" x="82" y="759">0 PHMN в final snapshot</text>
-  <text class="small" x="82" y="782">только contextual weak lead</text>
+  <text class="box-text" x="82" y="759">0 PHMN in final snapshot</text>
+  <text class="small" x="82" y="782">contextual weak lead only</text>
 
   <rect class="benign" x="420" y="740" width="360" height="112"/>
   <text class="box-title" x="442" y="772">Benign-control address</text>
   <text class="box-text" x="442" y="799">juno1e8238...dl93mj</text>
-  <text class="small" x="442" y="822">normal PHMN sender; тест false positives</text>
+  <text class="small" x="442" y="822">normal PHMN sender; use to test false positives</text>
 
-  <path class="edge-gray" d="M340 208 C370 208,390 208,420 208"/><text class="label" x="350" y="194">server artifacts</text>
-  <path class="edge-red" d="M680 208 C710 208,730 208,760 208"/><text class="label" x="692" y="194">30000 PHMN</text>
-  <path class="edge-red" d="M1060 176 C1092 155,1110 145,1140 142"/><text class="label" x="1070" y="128">12000 PHMN</text>
-  <path class="edge-red" d="M1060 228 C1092 246,1110 258,1140 278"/><text class="label" x="1070" y="253">12000 + 3000 PHMN</text>
-  <path class="edge-red" d="M1290 334 L1290 390"/><text class="label" x="1304" y="368">sell / swap</text>
-  <path class="edge-red" d="M1140 442 C1068 475,1006 520,960 560"/><text class="label" x="1010" y="501">USDC route</text>
-  <path class="edge-red" d="M1140 142 C1080 305,1030 460,960 560"/><text class="label" x="992" y="383">Noble / CCTP</text>
-  <path class="edge-amber" d="M680 616 C710 616,730 616,760 616"/><text class="label" x="690" y="603">funded route</text>
-  <path class="edge-amber" d="M420 616 C380 610,360 600,340 586"/><text class="label" x="348" y="593">context lead</text>
-  <path class="edge-amber" d="M420 640 C350 690,300 724,340 756"/><text class="label" x="322" y="713">weak lead</text>
-  <path class="edge-gray" d="M420 796 C390 770,365 735,340 652"/><text class="label" x="350" y="754">false-positive control</text>
+  <path class="edge-gray" d="M340 208 C370 208,390 208,420 208"/>
+  <text class="label" x="350" y="194">server artifacts</text>
+
+  <path class="edge-red" d="M680 208 C710 208,730 208,760 208"/>
+  <text class="label" x="692" y="194">30000 PHMN</text>
+
+  <path class="edge-red" d="M1060 176 C1092 155,1110 145,1140 142"/>
+  <text class="label" x="1070" y="128">12000 PHMN</text>
+
+  <path class="edge-red" d="M1060 228 C1092 246,1110 258,1140 278"/>
+  <text class="label" x="1070" y="253">12000 + 3000 PHMN</text>
+
+  <path class="edge-red" d="M1290 334 L1290 390"/>
+  <text class="label" x="1304" y="368">sell / swap</text>
+
+  <path class="edge-red" d="M1140 442 C1068 475,1006 520,960 560"/>
+  <text class="label" x="1010" y="501">USDC route</text>
+
+  <path class="edge-red" d="M1140 142 C1080 305,1030 460,960 560"/>
+  <text class="label" x="992" y="383">Noble / CCTP</text>
+
+  <path class="edge-amber" d="M680 616 C710 616,730 616,760 616"/>
+  <text class="label" x="690" y="603">funded route</text>
+
+  <path class="edge-amber" d="M420 616 C380 610,360 600,340 586"/>
+  <text class="label" x="348" y="593">context lead</text>
+
+  <path class="edge-amber" d="M420 640 C350 690,300 724,340 756"/>
+  <text class="label" x="322" y="713">weak lead</text>
+
+  <path class="edge-gray" d="M420 796 C390 770,365 735,340 652"/>
+  <text class="label" x="350" y="754">false-positive control</text>
 
   <rect x="920" y="740" width="560" height="112" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" rx="12"/>
   <text class="note" x="946" y="773">Review guardrails</text>
-  <text class="small" x="946" y="801">1. Common contracts, pools, routers, IBC escrow и SubDAO transfers не proof alone.</text>
-  <text class="small" x="946" y="824">2. Olim eltl = manual review, не automatic exclusion.</text>
-  <text class="small" x="946" y="847">3. Если rule флагует benign-control только по normal transfers, rule слишком широкий.</text>
+  <text class="small" x="946" y="801">1. Common contracts, pools, routers, IBC escrow and SubDAO transfers are not proof alone.</text>
+  <text class="small" x="946" y="824">2. Olim eltl is manual review, not automatic exclusion.</text>
+  <text class="small" x="946" y="847">3. Any rule that flags the benign-control address only by normal transfers is too broad.</text>
 </svg>
 

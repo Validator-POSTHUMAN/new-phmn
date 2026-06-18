@@ -13,9 +13,12 @@ This graph is a visual companion to:
 - JSON source: [phmn_attacker_olim_interaction_graph.json](../graphs/phmn_attacker_olim_interaction_graph.json)
 - SVG render: [phmn_attacker_olim_interaction_graph.svg](../graphs/phmn_attacker_olim_interaction_graph.svg)
 - PNG render: [phmn_attacker_olim_interaction_graph.png](../graphs/phmn_attacker_olim_interaction_graph.png)
+- High-signal infographic: [phmn_incident_high_signal_flow.svg](../graphs/phmn_incident_high_signal_flow.svg)
 - High-signal RU infographic: [phmn_incident_high_signal_flow_ru.svg](../graphs/phmn_incident_high_signal_flow_ru.svg)
-- False-positive review: [PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md](../reports/PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md)
-- Visualization guide: [PHMN_INCIDENT_VISUALIZATION_GUIDE_RU_2026-06-18.md](../reports/PHMN_INCIDENT_VISUALIZATION_GUIDE_RU_2026-06-18.md)
+- False-positive review: [PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_2026-06-18.md](../reports/PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_2026-06-18.md)
+- False-positive review RU: [PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md](../reports/PHMN_INCIDENT_FALSE_POSITIVE_REVIEW_RU_2026-06-18.md)
+- Visualization guide: [PHMN_INCIDENT_VISUALIZATION_GUIDE_2026-06-18.md](../reports/PHMN_INCIDENT_VISUALIZATION_GUIDE_2026-06-18.md)
+- Visualization guide RU: [PHMN_INCIDENT_VISUALIZATION_GUIDE_RU_2026-06-18.md](../reports/PHMN_INCIDENT_VISUALIZATION_GUIDE_RU_2026-06-18.md)
 - Obsidian-style entity map: [entities/phmn-incident/README.md](../entities/phmn-incident/README.md)
 
 ## Reading the Graph

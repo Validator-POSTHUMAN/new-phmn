@@ -1,14 +1,14 @@
 flowchart LR
-  server["Evidence по minter server<br/>неизвестный SSH активен во время инцидента"]
-  minter["Скомпрометированный minter<br/>juno100um...xyyw"]
-  attacker["Attacker Juno pqard<br/>juno1pqard...dea0<br/>15100 PHMN в снапшоте"]
+  server["Minter server evidence<br/>unknown SSH active during incident"]
+  minter["Compromised minter<br/>juno100um...xyyw"]
+  attacker["Attacker Juno pqard<br/>juno1pqard...dea0<br/>15100 PHMN in snapshot"]
   osmo["Osmosis route<br/>osmo1pqard...ajvp"]
   neutron["Neutron route<br/>neutron1pqard...qq5"]
-  contracts["DEX / pool / router contracts<br/>общая инфраструктура"]
+  contracts["DEX / pool / router contracts<br/>common infrastructure"]
   solana["Solana route<br/>AhT5... / 39CA... / 6Mx..."]
   funding["Funding hub<br/>osmo1m8wg...v83q"]
-  olim["Olim eltl manual review<br/>300.009116 PHMN через DAS"]
-  olim187["Olim 187 cluster<br/>0 PHMN в снапшоте"]
+  olim["Olim eltl manual review<br/>300.009116 PHMN via DAS"]
+  olim187["Olim 187 cluster<br/>0 PHMN in snapshot"]
   benign["Benign-control<br/>juno1e8238...dl93mj"]
 
   server -. "server artifacts" .-> minter
@@ -20,7 +20,7 @@ flowchart LR
   contracts -->|"USDC route"| solana
   funding -. "pre-incident funding lead" .-> attacker
   funding -. "context lead" .-> olim187
-  olim -. "только manual review" .-> funding
+  olim -. "manual review only" .-> funding
   benign -. "false-positive control" .-> olim
 
   classDef confirmed fill:#fee2e2,stroke:#b42318,stroke-width:2px,color:#111;
