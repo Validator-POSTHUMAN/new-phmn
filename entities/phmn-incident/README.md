@@ -9,6 +9,7 @@ Start here when reviewing address relationships in Obsidian.
 - [[attacker-solana-route]]
 - [[olim-eltl-cluster]]
 - [[olim-187-cluster]]
+- [[posthuman-das-context]]
 - [[funding-hub-osmo1m8wg]]
 - [[minter-server-access]]
 - [[common-contracts-and-routers]]
@@ -16,5 +17,4 @@ Start here when reviewing address relationships in Obsidian.
 
 ## Review Rule
 
-Do not treat common-contract or normal community interactions as attacker evidence by themselves. Use [[benign-control-juno1e8238]] as a control case.
-
+Do not treat common-contract, DAS/SubDAO, or normal community interactions as attacker evidence by themselves. Use [[benign-control-juno1e8238]] and [[posthuman-das-context]] as control cases.
