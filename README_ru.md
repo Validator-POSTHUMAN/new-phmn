@@ -86,6 +86,8 @@ POSTHUMAN готовит миграцию старого PHMN в новый PHMN
 - compromised minter address, если команда отдельно не опубликует другое решение;
 - адреса и связанные clusters, исключённые по результатам incident investigation;
 - unresolved accounting rows, которые пока нельзя безопасно сопоставить с пользователем.
+- contract/module/pool/proxy addresses, где отправка нового PHMN на
+  механически пересчитанный Cosmos address не доставит токены underlying users.
 
 Подтверждённый attacker cluster сейчас держит:
 
@@ -98,6 +100,16 @@ Compromised minter address сейчас держит:
 Эти балансы не будут считаться обычными user allocations.
 
 Excluded и quarantined PHMN останутся под DAO-controlled handling, а не будут отправлены incident-related или неясным адресам.
+
+После community review 44 прямые contract/module/pool/proxy строки были
+вынесены в quarantine из финального broadcast. Эти строки представляют:
+
+`326.324751 PHMN`
+
+Они остаются учтёнными внутри cap 131,072 PHMN, но новый PHMN не отправляется
+на механически пересчитанные Cosmos addresses. Эта сумма направляется в
+Strategic SubDAO unresolved contract-holder handling до отдельного решения по
+underlying holders.
 
 ## Перенаправление SubDAO treasury
 
@@ -168,6 +180,14 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 Актуальные migration accounting artifacts:
 
 - Snapshot CSV: [snapshots/phmn_final_snapshot.csv](snapshots/phmn_final_snapshot.csv)
+- Final distribution broadcast CSV: [snapshots/phmn_final_distribution_broadcast_current.csv](snapshots/phmn_final_distribution_broadcast_current.csv)
+- Final distribution breakdown: [snapshots/phmn_final_distribution_broadcast_current_breakdown.csv](snapshots/phmn_final_distribution_broadcast_current_breakdown.csv)
+- Final distribution summary: [snapshots/phmn_final_distribution_current_summary.json](snapshots/phmn_final_distribution_current_summary.json)
+- Old addresses not receiving new PHMN directly: [snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv)
+- Old addresses not receiving new PHMN directly, JSON: [snapshots/phmn_old_addresses_not_receiving_new_phmn_current.json](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.json)
+- Not-receiving register explainer RU: [reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md)
+- Not-receiving register explainer EN: [reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md)
+- Contract/module quarantine rows: [adjustments/phmn_contract_or_module_rows_quarantined.csv](adjustments/phmn_contract_or_module_rows_quarantined.csv)
 - Expanded source rows: [snapshots/phmn_final_snapshot_expanded_rows.csv](snapshots/phmn_final_snapshot_expanded_rows.csv)
 - DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
@@ -191,6 +211,45 @@ Strategic SubDAO будет отвечать за будущие PHMN allocation
 - Public explainer EN: [reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_EN_2026-06-16.md)
 - Reports: [reports/](reports/)
 - Checksums: [checksums/SHA256SUMS](checksums/SHA256SUMS)
+
+### Текущее финальное распределение
+
+[`phmn_final_distribution_broadcast_current.csv`](snapshots/phmn_final_distribution_broadcast_current.csv)
+
+Это текущий финальный файл распределения для broadcast нового PHMN.
+
+В нём применены corrections после community review:
+
+- incident-related addresses не получают новый PHMN напрямую;
+- SubDAO treasury balances перенаправлены на новые SubDAO treasury addresses;
+- unresolved accounting gaps остаются под DAO-controlled handling;
+- 44 contract/module/pool/proxy строки вынесены в quarantine вместо отправки
+  нового PHMN на механически пересчитанные Cosmos addresses.
+
+Final broadcast total:
+
+`131,072.000000 PHMN`
+
+Final broadcast rows:
+
+`23,412`
+
+Публичный register старых адресов, которые содержат старый PHMN, но не получают
+новый PHMN напрямую:
+
+[`phmn_old_addresses_not_receiving_new_phmn_current.csv`](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv)
+
+В register:
+
+- 66 old source-address rows;
+- 51,463.381079 old PHMN represented;
+- причина, почему каждый old address не получает новый PHMN напрямую;
+- final destination или handling bucket для этой суммы.
+
+Описание register:
+
+- [Russian](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md)
+- [English](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md)
 
 ### Финальный ownership snapshot
 
@@ -233,5 +292,7 @@ Audit files:
 - Переводы после публикации не влияют на миграцию.
 - Attacker и incident-related addresses не получат новый PHMN как обычные holders.
 - PHMN, принадлежащий SubDAO treasuries, будет отправлен в новые SubDAO treasuries.
+- contract/module/pool/proxy balances не будут отправлены на механически
+  пересчитанные Cosmos addresses.
 - Новый токен сохранит прежний лимит supply.
 - Оставшийся PHMN reserve будет контролироваться новым Strategic SubDAO.

@@ -1,0 +1,75 @@
+{
+  "register_file_csv": "phmn_old_addresses_not_receiving_new_phmn_register.csv",
+  "register_file_json": "phmn_old_addresses_not_receiving_new_phmn_register.json",
+  "source_file": "phmn_old_addresses_not_receiving_new_phmn_contracts_quarantined.csv",
+  "old_addresses_not_receiving_new_phmn_rows": 66,
+  "old_addresses_not_receiving_new_phmn_micro": "51463381079",
+  "old_addresses_not_receiving_new_phmn_phmn": "51463.381079",
+  "strategic_subdao_recipient": "cosmos146s5j3t7gh2g37ywm47dp8avhesu2htvjjaxq7z55e7xj0rq0k8q5qnjjy",
+  "by_distribution_status": {
+    "excluded_incident": {
+      "rows": 2,
+      "micro": "17132149313",
+      "phmn": "17132.149313"
+    },
+    "excluded_olim_operator_confirmed": {
+      "rows": 1,
+      "micro": "300009116",
+      "phmn": "300.009116"
+    },
+    "quarantined_contract_or_module_account": {
+      "rows": 44,
+      "micro": "326324751",
+      "phmn": "326.324751"
+    },
+    "quarantined_unresolved_accounting_gap": {
+      "rows": 1,
+      "micro": "57230100",
+      "phmn": "57.230100"
+    },
+    "rerouted_to_subdao": {
+      "rows": 18,
+      "micro": "33647667799",
+      "phmn": "33647.667799"
+    }
+  },
+  "by_handling_bucket": {
+    "specific_subdao_treasury": {
+      "rows": 3,
+      "micro": "30371280659",
+      "phmn": "30371.280659"
+    },
+    "strategic_subdao_treasury": {
+      "rows": 18,
+      "micro": "20708545569",
+      "phmn": "20708.545569"
+    },
+    "strategic_subdao_unresolved_accounting_gap_handling": {
+      "rows": 1,
+      "micro": "57230100",
+      "phmn": "57.230100"
+    },
+    "strategic_subdao_unresolved_contract_holder_handling": {
+      "rows": 44,
+      "micro": "326324751",
+      "phmn": "326.324751"
+    }
+  },
+  "by_final_recipient_or_bucket": {
+    "cosmos146s5j3t7gh2g37ywm47dp8avhesu2htvjjaxq7z55e7xj0rq0k8q5qnjjy": {
+      "rows": 63,
+      "micro": "21092100420",
+      "phmn": "21092.100420"
+    },
+    "cosmos1pu90e2gm2kq9lvheqzrh0tl9dw5aqg6v5gr9jug2eqdel0vzuxkqvg72nn": {
+      "rows": 3,
+      "micro": "30371280659",
+      "phmn": "30371.280659"
+    }
+  },
+  "notes": [
+    "All listed old addresses hold old PHMN balance but will not receive new PHMN directly on the old or mechanically normalized Cosmos address.",
+    "Contract/module/pool/proxy rows are included in cap accounting and routed to Strategic SubDAO unresolved contract-holder handling, pending a separate underlying-holder resolution.",
+    "DENOM_TBD must still be replaced before real broadcast."
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "source_package": "phmn/migration-snapshot-2026-06-16",
+  "source_git_commit": "95941d5",
+  "version": "v5_final_current_contracts_quarantined_with_not_receiving_register",
+  "denom": "DENOM_TBD",
+  "recipient_rows": 23412,
+  "total_micro": "131072000000",
+  "total_phmn": "131072.000000",
+  "expected_cap_micro": "131072000000",
+  "expected_cap_phmn": "131072.000000",
+  "strategic_subdao_recipient": "cosmos146s5j3t7gh2g37ywm47dp8avhesu2htvjjaxq7z55e7xj0rq0k8q5qnjjy",
+  "olim_override_groups": [
+    "olim_linked_juno187",
+    "olim_operator_16ts5_cluster",
+    "olim_operator_cw347_cluster",
+    "olim_operator_f68m5_cluster",
+    "olim_operator_js02_cluster",
+    "olim_operator_mnfft_cluster",
+    "olim_operator_qa5z_cluster",
+    "olim_same_key"
+  ],
+  "olim_override_rows": 1,
+  "olim_override_micro": "300009116",
+  "olim_override_phmn": "300.009116",
+  "olim_override_sources": [
+    {
+      "source_chain": "juno",
+      "source_address": "juno1eltl6qu6y538vhux3mk3pjpn7redx8najm4u3e",
+      "cosmos_address": "cosmos1eltl6qu6y538vhux3mk3pjpn7redx8nayfk8k9",
+      "amount_micro": "300009116",
+      "amount_phmn": "300.009116",
+      "source_type": "das_staked",
+      "original_status": "eligible_snapshot"
+    }
+  ],
+  "rules_applied": [
+    "eligible_snapshot -> effective_destination_cosmos_address, except Olim override",
+    "Olim special-address clusters -> Strategic SubDAO treasury",
+    "rerouted_to_subdao -> effective_destination_cosmos_address",
+    "excluded_incident -> Strategic SubDAO treasury",
+    "quarantined_unresolved_accounting_gap -> Strategic SubDAO treasury",
+    "remaining capacity to 131,072 PHMN -> Strategic SubDAO treasury",
+    "direct long Bech32 source rows (contract/module/pool/proxy accounts) -> quarantined, not sent to normalized Cosmos recipient",
+    "quarantined contract/module amount -> Strategic SubDAO treasury / unresolved contract-holder handling"
+  ],
+  "warnings": [
+    "DENOM_TBD must be replaced before real broadcast.",
+    "This v2 supersedes the earlier final-candidate package for review because operator confirmed Olim exclusion.",
+    "This is a candidate correction package; replace the public final package only after operator approval.",
+    "Underlying LP/contract holder resolution is not included here.",
+    "The package includes a public register of old addresses holding old PHMN that do not receive new PHMN directly, with reason and destination handling."
+  ],
+  "contract_or_module_quarantine_rows": 44,
+  "contract_or_module_quarantine_micro": "326324751",
+  "contract_or_module_quarantine_phmn": "326.324751",
+  "strategic_subdao_amount_micro_after_quarantine": "30342100420",
+  "strategic_subdao_amount_phmn_after_quarantine": "30342.100420",
+  "old_addresses_not_receiving_new_phmn_register": {
+    "register_file_csv": "phmn_old_addresses_not_receiving_new_phmn_register.csv",
+    "register_file_json": "phmn_old_addresses_not_receiving_new_phmn_register.json",
+    "source_file": "phmn_old_addresses_not_receiving_new_phmn_contracts_quarantined.csv",
+    "old_addresses_not_receiving_new_phmn_rows": 66,
+    "old_addresses_not_receiving_new_phmn_micro": "51463381079",
+    "old_addresses_not_receiving_new_phmn_phmn": "51463.381079",
+    "strategic_subdao_recipient": "cosmos146s5j3t7gh2g37ywm47dp8avhesu2htvjjaxq7z55e7xj0rq0k8q5qnjjy",
+    "by_distribution_status": {
+      "excluded_incident": {
+        "rows": 2,
+        "micro": "17132149313",
+        "phmn": "17132.149313"
+      },
+      "excluded_olim_operator_confirmed": {
+        "rows": 1,
+        "micro": "300009116",
+        "phmn": "300.009116"
+      },
+      "quarantined_contract_or_module_account": {
+        "rows": 44,
+        "micro": "326324751",
+        "phmn": "326.324751"
+      },
+      "quarantined_unresolved_accounting_gap": {
+        "rows": 1,
+        "micro": "57230100",
+        "phmn": "57.230100"
+      },
+      "rerouted_to_subdao": {
+        "rows": 18,
+        "micro": "33647667799",
+        "phmn": "33647.667799"
+      }
+    },
+    "by_handling_bucket": {
+      "specific_subdao_treasury": {
+        "rows": 3,
+        "micro": "30371280659",
+        "phmn": "30371.280659"
+      },
+      "strategic_subdao_treasury": {
+        "rows": 18,
+        "micro": "20708545569",
+        "phmn": "20708.545569"
+      },
+      "strategic_subdao_unresolved_accounting_gap_handling": {
+        "rows": 1,
+        "micro": "57230100",
+        "phmn": "57.230100"
+      },
+      "strategic_subdao_unresolved_contract_holder_handling": {
+        "rows": 44,
+        "micro": "326324751",
+        "phmn": "326.324751"
+      }
+    },
+    "by_final_recipient_or_bucket": {
+      "cosmos146s5j3t7gh2g37ywm47dp8avhesu2htvjjaxq7z55e7xj0rq0k8q5qnjjy": {
+        "rows": 63,
+        "micro": "21092100420",
+        "phmn": "21092.100420"
+      },
+      "cosmos1pu90e2gm2kq9lvheqzrh0tl9dw5aqg6v5gr9jug2eqdel0vzuxkqvg72nn": {
+        "rows": 3,
+        "micro": "30371280659",
+        "phmn": "30371.280659"
+      }
+    },
+    "notes": [
+      "All listed old addresses hold old PHMN balance but will not receive new PHMN directly on the old or mechanically normalized Cosmos address.",
+      "Contract/module/pool/proxy rows are included in cap accounting and routed to Strategic SubDAO unresolved contract-holder handling, pending a separate underlying-holder resolution.",
+      "DENOM_TBD must still be replaced before real broadcast."
+    ]
+  },
+  "status": "final_current_for_publication",
+  "supersedes": [
+    "2026-06-18-final-distribution-candidate",
+    "2026-06-18-final-distribution-candidate-v2-olim-excluded",
+    "2026-06-19-contract-address-quarantine-candidate",
+    "2026-06-20-contract-address-quarantine-candidate-with-not-receiving-register"
+  ],
+  "canonical_files": {
+    "broadcast_csv": "phmn_final_distribution_broadcast_current.csv",
+    "broadcast_breakdown_csv": "phmn_final_distribution_broadcast_current_breakdown.csv",
+    "not_receiving_old_addresses_csv": "phmn_old_addresses_not_receiving_new_phmn_current.csv",
+    "not_receiving_old_addresses_json": "phmn_old_addresses_not_receiving_new_phmn_current.json",
+    "not_receiving_register_summary": "phmn_old_addresses_not_receiving_new_phmn_register_summary.json"
+  },
+  "publication_note": "This final-current package keeps the 131072.000000 PHMN cap, removes direct new-PHMN delivery to 44 detected contract/module/pool/proxy rows, and includes a public not-receiving register with reasons and final routing."
+}

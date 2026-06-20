@@ -100,6 +100,8 @@ These include:
   explicit decision;
 - addresses and related clusters excluded by the incident investigation;
 - unresolved accounting rows that cannot yet be safely mapped to a user.
+- contract, module, pool, and proxy accounts where sending new PHMN to a
+  mechanically converted Cosmos address would not reach the underlying users.
 
 The confirmed attacker cluster currently holds:
 
@@ -113,6 +115,16 @@ These balances will not be treated as normal user allocations.
 
 Excluded and quarantined PHMN will remain under DAO-controlled handling instead
 of being distributed to incident-related or unclear addresses.
+
+After community review, 44 direct contract/module/pool/proxy rows were
+quarantined from the final broadcast. These rows represent:
+
+`326.324751 PHMN`
+
+They remain counted in the 131,072 PHMN cap, but they are not sent to the
+mechanically converted Cosmos addresses. They are routed to Strategic SubDAO
+unresolved contract-holder handling until the underlying holder resolution is
+handled separately.
 
 ## SubDAO Treasury Rerouting
 
@@ -194,6 +206,14 @@ The following files are the current migration accounting artifacts.
 Repository layout:
 
 - Snapshot CSV: [snapshots/phmn_final_snapshot.csv](snapshots/phmn_final_snapshot.csv)
+- Final distribution broadcast CSV: [snapshots/phmn_final_distribution_broadcast_current.csv](snapshots/phmn_final_distribution_broadcast_current.csv)
+- Final distribution breakdown: [snapshots/phmn_final_distribution_broadcast_current_breakdown.csv](snapshots/phmn_final_distribution_broadcast_current_breakdown.csv)
+- Final distribution summary: [snapshots/phmn_final_distribution_current_summary.json](snapshots/phmn_final_distribution_current_summary.json)
+- Old addresses not receiving new PHMN directly: [snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv)
+- Old addresses not receiving new PHMN directly, JSON: [snapshots/phmn_old_addresses_not_receiving_new_phmn_current.json](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.json)
+- Not-receiving register explainer: [reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md)
+- Not-receiving register explainer RU: [reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md)
+- Contract/module quarantine rows: [adjustments/phmn_contract_or_module_rows_quarantined.csv](adjustments/phmn_contract_or_module_rows_quarantined.csv)
 - Expanded source rows: [snapshots/phmn_final_snapshot_expanded_rows.csv](snapshots/phmn_final_snapshot_expanded_rows.csv)
 - DAS staking breakdown: [adjustments/das_staking_breakdown.csv](adjustments/das_staking_breakdown.csv)
 - SubDAO reroute adjustment: [adjustments/subdao_reroute_adjustments.csv](adjustments/subdao_reroute_adjustments.csv)
@@ -217,6 +237,45 @@ Repository layout:
 - Public explainer RU: [reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md](reports/PHMN_PUBLIC_EXPLAINER_RU_2026-06-16.md)
 - Reports: [reports/](reports/)
 - Checksums: [checksums/](checksums/)
+
+### Current final distribution
+
+[`phmn_final_distribution_broadcast_current.csv`](snapshots/phmn_final_distribution_broadcast_current.csv)
+
+This is the current final distribution file for the new PHMN broadcast.
+
+It applies the community-reviewed corrections:
+
+- incident-related addresses do not receive new PHMN directly;
+- SubDAO treasury balances are rerouted to the new SubDAO treasury addresses;
+- unresolved accounting gaps remain under DAO-controlled handling;
+- 44 contract/module/pool/proxy rows are quarantined instead of sending new
+  PHMN to mechanically converted Cosmos addresses.
+
+Final broadcast total:
+
+`131,072.000000 PHMN`
+
+Final broadcast rows:
+
+`23,412`
+
+The public register of old addresses that hold old PHMN but will not receive
+new PHMN directly is:
+
+[`phmn_old_addresses_not_receiving_new_phmn_current.csv`](snapshots/phmn_old_addresses_not_receiving_new_phmn_current.csv)
+
+That register contains:
+
+- 66 old source-address rows;
+- 51,463.381079 old PHMN represented;
+- the reason each old address does not receive new PHMN directly;
+- the final destination or handling bucket for that amount.
+
+The register explainer is available here:
+
+- [English](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER.md)
+- [Russian](reports/PHMN_OLD_ADDRESSES_NOT_RECEIVING_NEW_PHMN_REGISTER_RU.md)
 
 ### Corrected ownership snapshot
 
@@ -287,5 +346,7 @@ In simple terms:
 - attacker and incident-related addresses will not receive new PHMN as normal
   holders;
 - SubDAO treasury PHMN will move to the new SubDAO treasuries;
+- contract/module/pool/proxy balances will not be sent to mechanically
+  converted Cosmos addresses;
 - the new token will have the same total limit as before;
 - the remaining PHMN reserve will be controlled by the new Strategic SubDAO.
