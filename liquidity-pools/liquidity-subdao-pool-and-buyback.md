@@ -124,7 +124,7 @@ PHMN_received ≈ 13,598.6885
 | PHMN | 6,857.155 |
 | USDC | 11,575 |
 
-Используется для создания пула **PHMN/USDC** на Osmosis DEX.
+Используется для создания пула **PHMN/USDC** на BeeZee DEX.
 
 ### Половина 2: Пул PHMN/BTC
 
