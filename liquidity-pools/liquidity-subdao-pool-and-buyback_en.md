@@ -115,14 +115,6 @@ PHMN_received ≈ 13,598.6885
 
 ## Liquidity Split and New Pool Creation
 
-After the buyback completes, Liquidity SubDAO **withdraws liquidity** from the pool
-and receives back all remaining assets:
-
-| Asset | Amount |
-|-------|--------|
-| PHMN | 13,714.31 |
-| USDC | 23,150 |
-
 This liquidity is **split into two equal halves** to create two independent pools:
 
 ### Half 1: PHMN/USDC Pool
@@ -132,7 +124,7 @@ This liquidity is **split into two equal halves** to create two independent pool
 | PHMN | 6,857.155 |
 | USDC | 11,575 |
 
-Used to create a **PHMN/USDC** pool on Osmosis DEX.
+Used to create a **PHMN/USDC** pool on BeeZee DEX.
 
 ### Half 2: PHMN/BTC Pool
 
