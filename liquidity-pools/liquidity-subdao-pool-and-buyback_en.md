@@ -113,6 +113,54 @@ PHMN_received ≈ 13,598.6885
 
 ---
 
+## Liquidity Split and New Pool Creation
+
+After the buyback completes, Liquidity SubDAO **withdraws liquidity** from the pool
+and receives back all remaining assets:
+
+| Asset | Amount |
+|-------|--------|
+| PHMN | 13,714.31 |
+| USDC | 23,150 |
+
+This liquidity is **split into two equal halves** to create two independent pools:
+
+### Half 1: PHMN/USDC Pool
+
+| Asset | Amount |
+|-------|--------|
+| PHMN | 6,857.155 |
+| USDC | 11,575 |
+
+Used to create a **PHMN/USDC** pool on Osmosis DEX.
+
+### Half 2: PHMN/BTC Pool
+
+| Asset | Amount |
+|-------|--------|
+| PHMN | 6,857.155 |
+| USDC | 11,575 |
+
+The USDC from this half is **swapped for BTC**. The resulting BTC together with PHMN
+is used to create a **PHMN/BTC** pool on Osmosis DEX.
+
+> The amount of BTC received depends on the current BTC/USDC exchange rate and the
+> parameters of the pool through which the swap is executed.
+
+### Final Structure
+
+```
+Before buyback:
+  PHMN/USDC Pool: 27,313 PHMN / 11,624 USDC
+
+After buyback and rebalancing:
+  PHMN/USDC Pool:  6,857 PHMN / 11,575 USDC
+  PHMN/BTC Pool:   6,857 PHMN / X BTC
+  SubDAO Treasury: 13,599 PHMN
+```
+
+---
+
 ## Economic Rationale
 
 ### Objectives
